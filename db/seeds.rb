@@ -15,7 +15,7 @@ Attendance.destroy_all
 
 
 10.times do |i|
-   User.create(
+   User.create!(
       first_name: Faker::Name.first_name,
       last_name: Faker::Name.last_name,
       email: "user#{i}@yopmail.com",
@@ -40,7 +40,7 @@ end
 
    Event.all.each do |event|
       3.times do 
-         Attendance.create(
+         Attendance.create!(
             attendant: User.all.sample,
             event: event
          )
