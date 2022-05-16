@@ -24,4 +24,16 @@ Attendance.destroy_all
    )
 end
 
+
+20.times do |i|
+   Event.create(
+      start_date: Faker::Date.between(from: '2022-05-17', to: '2022-12-31'),
+      duration: Faker::Number.within(range: 1..15),
+      title: Faker::Lorem.sentence(word_count: 3),
+      description: Faker::Lorem.sentence(word_count: 20),
+      price: Faker::Number.within(range: 1..999),
+      location: Faker::Games::Pokemon.location,
+   )
+end
+
 #User.create(email:"user10@yopmail.com", encrypted_password: "azerty", description:"azerty", first_name:"foucauld", last_name:"beaumont")
