@@ -37,3 +37,4 @@ end
 end
 
 #User.create(email:"user10@yopmail.com", encrypted_password: "azerty", description:"azerty", first_name:"foucauld", last_name:"beaumont")
+#User.create(email:"foucauld0@yopmail.com", encrypted_password: "azerty", description:"azerty", first_name:"foucauld", last_name:"beaumont")
