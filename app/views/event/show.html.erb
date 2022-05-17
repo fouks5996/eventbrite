@@ -1,12 +1,47 @@
-<div class="card-content">
-   <h1> <%= @event.title%></h1>
-   <p class="content_gossip" > <%= @event.description%></p>
-   <div class="date_info" >
-      <p> <i class="fa-solid fa-users"></i> <%= @event.attendants.size%> participants </p>
-      <p> <i class="fa-solid fa-address-book"></i> Contact pour info : <%= @event.admin.email%>  </p>
-      <p> <i class="fa-solid fa-clock"></i>  Date de début : <%= @event.start_date.strftime("%d %B %Y")%> à <%= @event.start_date.strftime("%Hh%M")%>  </p>
-      <p> <i class="fa-solid fa-clock"></i>  Date de fin : <%= Event.end_date(@event).strftime("%d %B %Y")%> à <%=  Event.end_date(@event).strftime("%Hh%M") %>  </p>
-      <p> <i class="fa-solid fa-map-pin"></i> Lieu : <%= @event.location%>  </p>
-      <p> <i class="fa-solid fa-euro-sign"></i> Prix : <%= @event.price%> € </p>
-   </div> 
+
+<div style="position:relative; margin-bottom:50px" >  
+    <div class="title_bg" style="background: linear-gradient(253.68deg, rgba(250, 147, 52, 0.76) 2.53%, rgba(250, 147, 52, 0.66) 29.34%, rgba(67, 43, 217, 0.6) 53.64%, #CA11F9 94.36%);">
+      <h1> <%= @event.title%></h1>
+    </div>
+</div>
+
+<div class="wrapper">
+   <div class="event-content">
+      <div class="date_info" >
+         <p> <i class="fa-solid fa-users"></i> <%= @event.attendants.size%> participants </p>
+         <p> <i class="fa-solid fa-address-book"></i> Contact : <%= @event.admin.email%>  </p>
+         <p> <i class="fa-solid fa-clock"></i>  Date de début : <%= @event.start_date.strftime("%d %B %Y")%> à <%= @event.start_date.strftime("%Hh%M")%>  </p>
+         <p> <i class="fa-solid fa-clock"></i>  Date de fin : <%= Event.end_date(@event).strftime("%d %B %Y")%> à <%=  Event.end_date(@event).strftime("%Hh%M") %>  </p>
+         <p> <i class="fa-solid fa-map-pin"></i> Lieu : <%= @event.location%>  </p>
+         <p> <i class="fa-solid fa-euro-sign"></i> Prix : <%= @event.price%> € </p>
+      </div> 
+         <div style="display:flex; flex-direction:column; margin-left:70px"> 
+            <h2 style="font-weight:800">Description </h2>
+            <p class="description_event" > <%= @event.description%></p>
+
+            <h2 style="margin-top:20px; margin-bottom:6px; font-weight:800" >Galerie </h2>
+            <div class="row " style="margin-left:8px">
+               <div class="cover" style="margin-right:15px; margin-bottom:15px">
+                  <img src="https://source.unsplash.com/200x200/?town?sig=<%=rand(1..10)%>" 
+                  alt="avatar">
+               </div>
+                <div class="cover" style="margin-right:15px; margin-bottom:15px">
+                  <img src="https://source.unsplash.com/200x200/?town?sig=<%=rand(1..10)%>" 
+                  alt="avatar">
+               </div>
+                <div class="cover" style="margin-right:15px; margin-bottom:15px">
+                  <img src="https://source.unsplash.com/200x200/?town?sig=<%=rand(1..10)%>" 
+                  alt="avatar">
+               </div>
+               <div class="cover" style="margin-right:15px; margin-bottom:15px">
+                  <img src="https://source.unsplash.com/200x200/?town?sig=<%=rand(1..10)%>" 
+                  alt="avatar">
+               </div>
+                <div class="cover" style="margin-right:15px; margin-bottom:15px">
+                  <img src="https://source.unsplash.com/200x200/?town?sig=<%=rand(1..10)%>" 
+                  alt="avatar">
+               </div>
+            </div>
+         </div>
+   </div>
 </div>

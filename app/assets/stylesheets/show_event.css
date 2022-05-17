@@ -1,0 +1,26 @@
+.wrapper{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+}
+
+.event-content{
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-start;
+   width: 80%;
+   
+}
+
+.date_info{
+   background-color: white;
+   border-radius: 7px;
+   padding: 20px 30px;
+   flex:none;
+   box-shadow: 0px 0px 17px rgba(0, 0, 0, 0.07);
+}
+
+.description_event{
+   width: 80%;
+}
