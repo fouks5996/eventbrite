@@ -1,0 +1,126 @@
+form {
+   width: 350px;
+   margin-top: 20px;
+}
+
+form input[type=password], form input[type=text]{
+   border-radius: 5px;
+   border: none;
+   height: 40px;
+   width: 100%;
+   margin-bottom: 20px;
+   border: 1px solid rgb(227, 227, 227);
+   background-color: white;
+}
+
+textarea{
+   border-radius: 5px;
+   border: none;
+   height: 110px;
+   width: 100%;
+   border: 1px solid rgb(227, 227, 227);
+   background-color: white;
+
+}
+
+input[type=submit], button[type=submit] {
+   padding : 20px 40px;
+   background-color: rgb(102, 16, 171);
+   color: white;
+   font-size: 1rem;
+   transform: skew(-15deg);
+   border: none;
+   cursor: pointer;
+}
+
+input[type=submit]:hover, button[type=submit]:hover{
+   background-color: rgb(124, 52, 182);
+}
+
+
+.d-form form{
+   width: 700px !important;
+}
+
+.d-form{
+   margin-top: 150px;
+   margin-bottom: 150px;
+}
+
+.d-form form [type=text] {
+
+   min-width: 340px;
+}
+
+.d-form form .input_space {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.d-form form .inside_space {
+   margin-right: 20px;
+}
+
+.d-form form .inside_space label {
+   margin-right: 30px;
+}
+
+
+label{
+   font-size: 1rem;
+   font-weight: 700;
+}
+
+.names{
+   display: flex;
+}
+
+
+
+.ball{
+   border-radius: 50%;
+   position: absolute;
+   z-index: -3;
+}
+
+.orange{
+   background-color: rgb(235, 203, 142);
+   height: 90px;
+   width: 90px;
+   top: 80px;
+   left: 100px;
+}
+
+.pink{
+   background-color: rgb(234, 136, 206);
+   height: 60px;
+   width: 60px;
+   top: 180px;
+   right: 100px;
+}
+
+.red{
+   background-color: rgb(226, 160, 166);
+   height: 90px;
+   width: 90px;
+   bottom: 60px;
+   left: 200px;
+}
+
+.blue{
+   background-color: rgb(163, 162, 218);
+   height: 30px;
+   width: 30px;
+   top: 340px;
+   left: 500px;
+}
+
+.green{
+   background-color: rgb(162, 222, 185);
+   height: 50px;
+   width: 50px;
+   top: 420px;
+   right: 500px;
+}

@@ -19,7 +19,7 @@ Attendance.destroy_all
       first_name: Faker::Name.first_name,
       last_name: Faker::Name.last_name,
       email: "user#{i}@yopmail.com",
-      encrypted_password: "azerty",
+      password: "azerty",
       description: Faker::Lorem.sentence(word_count: 10)
    )
 end
@@ -38,17 +38,14 @@ end
 end
 
 
-   Event.all.each do |event|
-      3.times do 
-         Attendance.create!(
-            attendant: User.all.sample,
-            event: event
-         )
-      end
+Event.all.each do |event|
+   3.times do 
+      Attendance.create!(
+         attendant: User.all.sample,
+         event: event
+      )
    end
-
-
-
+end
 
 
 #User.create(email:"user10@yopmail.com", encrypted_password: "azerty", description:"azerty", first_name:"foucauld", last_name:"beaumont")

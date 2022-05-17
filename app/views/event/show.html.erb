@@ -1,0 +1,12 @@
+<div class="card-content">
+   <h1> <%= @event.title%></h1>
+   <p class="content_gossip" > <%= @event.description%></p>
+   <div class="date_info" >
+      <p> <i class="fa-solid fa-users"></i> <%= @event.attendants.size%> participants </p>
+      <p> <i class="fa-solid fa-address-book"></i> Contact pour info : <%= @event.admin.email%>  </p>
+      <p> <i class="fa-solid fa-clock"></i>  Date de début : <%= @event.start_date.strftime("%d %B %Y")%> à <%= @event.start_date.strftime("%Hh%M")%>  </p>
+      <p> <i class="fa-solid fa-clock"></i>  Date de fin : <%= Event.end_date(@event).strftime("%d %B %Y")%> à <%=  Event.end_date(@event).strftime("%Hh%M") %>  </p>
+      <p> <i class="fa-solid fa-map-pin"></i> Lieu : <%= @event.location%>  </p>
+      <p> <i class="fa-solid fa-euro-sign"></i> Prix : <%= @event.price%> € </p>
+   </div> 
+</div>

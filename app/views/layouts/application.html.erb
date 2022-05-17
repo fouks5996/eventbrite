@@ -4,12 +4,97 @@
     <title>Eventbrite</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
 
+    <link rel="stylesheet"  href="../../app/assets/stylesheets/index.css">
+    <link rel="stylesheet"  href="../../app/assets/stylesheets/application.css">
+    <link rel="stylesheet"  href="../../app/assets/stylesheets/form.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.js"></script>
   </head>
 
-  <body>
+  <body style="position:relative">
+  <nav class="navbar navbar-expand-lg shadow-none navbar-light bg-light py-3">
+          <div class="container-fluid">
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-mdb-toggle="collapse"
+                data-mdb-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+              </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <a class="navbar-brand mt-2 mt-lg-0" href="/">
+                <img
+                  style="border-radius:5px"
+                  src="https://s2.qwant.com/thumbr/0x380/7/d/db6b39ac2e62d29b08d3f150b8afe5f98939ec2b70dd8eeb5318cb33561c2f/4c22e048762f62ae96c9db2a32f31e68.png?u=https%3A%2F%2Fwww.logolynx.com%2Fimages%2Flogolynx%2F4c%2F4c22e048762f62ae96c9db2a32f31e68.png&q=0&b=1&p=0&a=0"
+                  height="35"
+                  loading="lazy"/>
+              </a>
+          </div>
+          <div class="d-flex align-items-center">
+            <!-- Icon -->
+            <a class="text-reset" style="margin-right:40px !important" href="/event/new">
+              <i class="fa-solid fa-circle-plus"></i> Create an event
+            </a>
+            <div class="dropdown">
+              <a
+                class="dropdown-toggle d-flex align-items-center hidden-arrow"
+                href="#"
+                style="color:black"
+                id="navbarDropdownMenuAvatar"
+                role="button"
+                data-mdb-toggle="dropdown"
+                aria-expanded="false" >
+                  
+                  <% if current_user %>
+                  <i class="fa-solid fa-user-check"></i>
+                    <%=  "#{current_user.first_name}" %>
+                  <% else %>
+                    <i class="fa-solid fa-user-plus"></i>
+                  <% end %>
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="navbarDropdownMenuAvatar">
+                <li style="color:black" class="dropdown-item">
+                  <% if current_user %>
+                    <ul>
+                      <li>
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        <%= link_to 'logout', destroy_user_session_path, class: 'css_class', style: 'color:black', method: :delete %>
+                      </li>
+                      <li>
+                      <a class="edit" href="<%= user_path(current_user.id)%>" >Mon compte  </a>                  
+                      </li>
+                    </ul>
+                      <% else %>
+                      <!-- not logged in -->
+                   <%= link_to 'Se connecter', new_user_session_path, class: 'css_class', style: 'color:black' %> / <%= link_to 'Sinscrire', new_user_registration_path, class: 'css_class', style: 'color:black' %>
+
+                  <% end %>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+
+      <% flash.each do |key, message| %>
+        <div style="position:absolute; top:27px; left:50%; transform: translate(-50%, -50%); z-index:9999 !important" class="alert <%= flash_class(key) %> alert-dismissible fade show text-center flash" role="alert">
+          <%= message %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <% end %>
+
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,53 @@
+<br>
+<br>
+<br>
+
+<%# <ul> %>
+  <%# <% if user_signed_in? %> 
+    <%# <li> %>
+      <%# <%= link_to "Sign out", destroy_user_session_path, method: :delete %> 
+    <%# </li> %>
+
+    <%# <li> %>
+      <%# Voici ton email : <%= current_user.email %> 
+    <%# </li> %>
+
+    <%# <li> %>
+      <%# <%= link_to "Edit email / password", edit_user_registration_path %> 
+    <%# </li> %>
+
+  <%# <% else %> 
+    <%# <li>     %>
+      <%# <%= link_to "Sign in", new_user_session_path %> 
+    <%# </li> %>
+
+    <%# <li> %>
+      <%# <%= link_to "Sign up", new_user_registration_path %> 
+    <%# </li> %>
+
+  <%# <% end %> 
+<%# </ul> %>
+ <h1> Events</h1>
+<div class="row feed">
+   <% @events.each do |event|%>
+      <div class="card">
+         <p class="name_author" >
+            <img src="https://source.unsplash.com/200x200/?portrait?sig=<%=rand(1..50)%>" 
+            alt="avatar" class="rounded-circle img-fluid" style="width: 30px; margin-right:12px">
+            
+            <%= event.admin.first_name%> <%= event.admin.last_name%>
+         </p>
+         <div class="cover">
+               <img src="https://source.unsplash.com/200x200/?town?sig=<%=rand(1..10)%>" 
+                alt="avatar">
+         </div>
+         <div class="card_body">
+            <h5 class="card-title"><%= event.title %></h5>
+            <p> Durée : <%= event.duration %> </p>
+            <p> Prix : <%= event.price %> </p>
+            <p> Location : <%= event.location %> </p>
+            <a class="edit" href="<%= event_path(event.id)%>" > voir event </a>
+         </div>
+      </div>
+   <% end %>
+</div>

@@ -1,0 +1,44 @@
+<div class="card-content">
+   <h1> <%= @user.first_name%> <%= @user.last_name%></h1>
+   <div class="date_info" >
+      <p> <i class="fa-solid fa-list-ul"></i> <%= @user.description%> </p>
+      <p> <i class="fa-solid fa-address-book"></i> <%= @user.email%> </p>
+   </div>
+
+   <div>
+      <% if current_user %>
+         <a class="edit" href="<%= edit_user_registration_path(@user) %>" > <i class="fa-solid fa-pen"></i> Editer mon mot de passe</a>
+      <% else %>
+      <% end %>
+  </div>
+</div>
+
+
+<h2> voici ses évenements :</h2>
+
+
+<div class="row feed">
+   <% @events.each do |event|%>
+      <% if event.admin_id == @user.id %>
+      <div class="card">
+         <p class="name_author" >
+            <img src="https://source.unsplash.com/200x200/?portrait?sig=<%=rand(1..50)%>" 
+            alt="avatar" class="rounded-circle img-fluid" style="width: 30px; margin-right:12px">
+            
+            <%= event.admin.first_name%> <%= event.admin.last_name%>
+         </p>
+         <div class="cover">
+               <img src="https://source.unsplash.com/200x200/?town?sig=<%=rand(1..10)%>" 
+                alt="avatar">
+         </div>
+         <div class="card_body">
+            <h5 class="card-title"><%= event.title %></h5>
+            <p> Durée : <%= event.duration %> </p>
+            <p> Prix : <%= event.price %> </p>
+            <p> Location : <%= event.location %> </p>
+            <a class="edit" href="<%= event_path(event.id)%>" > voir event </a>
+         </div>
+      </div>
+         <% end %>
+   <% end %>
+</div>
