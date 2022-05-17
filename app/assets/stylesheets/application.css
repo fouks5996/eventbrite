@@ -14,6 +14,11 @@
  *= require_self
  */
 
+ body {
+    margin: 0 auto;
+    background-color: #f0eded !important;
+ }
+
 
  i{
     margin-right: 10px !important;

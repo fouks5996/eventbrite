@@ -1,6 +1,3 @@
-<br>
-<br>
-<br>
 
 <%# <ul> %>
   <%# <% if user_signed_in? %> 
@@ -27,26 +24,36 @@
 
   <%# <% end %> 
 <%# </ul> %>
- <h1> Events</h1>
+
+<div style="position:relative; margin-bottom:70px" >  
+    <div class="title_bg">
+      <h1> Techno.  <br> Dance.   <br>Buy Tickets.</h1>
+    </div>
+
+    <div class="search_bar" >
+      <input type="search" name="" id="" placeholder="Cherchez votre évenement !">
+      <input type="submit" name="" id="" >
+    </div>
+</div>
+
 <div class="row feed">
    <% @events.each do |event|%>
       <div class="card">
-         <p class="name_author" >
-            <img src="https://source.unsplash.com/200x200/?portrait?sig=<%=rand(1..50)%>" 
-            alt="avatar" class="rounded-circle img-fluid" style="width: 30px; margin-right:12px">
-            
-            <%= event.admin.first_name%> <%= event.admin.last_name%>
-         </p>
          <div class="cover">
                <img src="https://source.unsplash.com/200x200/?town?sig=<%=rand(1..10)%>" 
                 alt="avatar">
          </div>
          <div class="card_body">
-            <h5 class="card-title"><%= event.title %></h5>
-            <p> Durée : <%= event.duration %> </p>
-            <p> Prix : <%= event.price %> </p>
-            <p> Location : <%= event.location %> </p>
-            <a class="edit" href="<%= event_path(event.id)%>" > voir event </a>
+            <div>
+                <h5 class="card-title"><%= event.title %></h5>
+                <p class="date" > <%= event.start_date.strftime("%d %B %Y") %>  </p>
+                <a class="edit" href="<%= event_path(event.id)%>" > <i class="fa-solid fa-arrow-right"></i> Détails </a>
+            </div>
+            <div>
+                <p> <i class="fa-solid fa-clock"></i>   <%= event.duration %>h </p>
+                <p> <i class="fa-solid fa-euro-sign"></i>  <%= event.price %> </p>
+                <p> <i class="fa-solid fa-map-pin"></i>  <%= event.location %> </p>
+            </div>
          </div>
       </div>
    <% end %>
