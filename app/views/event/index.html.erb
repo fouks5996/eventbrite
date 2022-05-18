@@ -9,25 +9,25 @@
     </div>
 </div>
 
-<div class="row feed">
-   <% @events.each do |event|%>
-      <div class="card">
-         <div class="cover">
-               <img src="https://source.unsplash.com/200x200/?town?sig=<%=rand(1..10)%>" 
-                alt="avatar">
-         </div>
-         <div class="card_body">
-            <div>
-                <h5 class="card-title"><%= event.title %></h5>
-                <p class="date" > <%= event.start_date.strftime("%d %B %Y") %>  </p>
-                <a class="edit" href="<%= event_path(event.id)%>" > <i class="fa-solid fa-arrow-right"></i> Détails </a>
+   <div class="row feed">
+      <% @events.each do |event|%>
+         <div class="card">
+            <div class="cover">
+                  <img src="https://source.unsplash.com/200x200/?town?sig=<%=rand(1..10)%>" 
+                  alt="avatar">
             </div>
-            <div>
-                <p> <i class="fa-solid fa-clock"></i>   <%= event.duration %>h </p>
-                <p> <i class="fa-solid fa-euro-sign"></i>  <%= event.price %> </p>
-                <p> <i class="fa-solid fa-map-pin"></i>  <%= event.location %> </p>
+            <div class="card_body">
+               <div>
+                  <h5 class="card-title"><%= event.title %></h5>
+                  <p class="date" > <%= event.start_date.strftime("%d %B %Y") %>  </p>
+                  <a class="edit" href="<%= event_path(event.id)%>" > <i class="fa-solid fa-arrow-right"></i> Détails </a>
+               </div>
+               <div>
+                  <p> <i class="fa-solid fa-clock"></i>   <%= event.duration %>h </p>
+                  <p> <i class="fa-solid fa-euro-sign"></i>  <%= event.price %> </p>
+                  <p> <i class="fa-solid fa-map-pin"></i>  <%= event.location %> </p>
+               </div>
             </div>
          </div>
-      </div>
-   <% end %>
-</div>
+      <% end %>
+   </div>

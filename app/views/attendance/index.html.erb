@@ -1,11 +1,24 @@
-<br>
-<br>
+<div style="position:relative; margin-bottom:70px" >  
+    <div class="title_bg">
+      <h1> Liste des participants (<%= @attends.size %>)</h1>
+    </div>
 
-<br>
+    <div class="search_bar" >
+      <input type="search" name="" id="" placeholder="Cherchez vos invités !">
+      <input type="submit" name="" id="" >
+    </div>
+</div>
 
-<h1> Espace evenement</h1>
-
-<% @attends.each do |attend|%>
-      <h1> <%= attend.first_name %>  </h1>
-<% end %>
-
+<div class="wrapper-invite">
+      <div class="invite-content" >
+            <% if @attends.size == 0 %>
+                  <h2> Il n'y a pas encore de participants !!!</h2>
+            <% else %>
+            <% @attends.each_with_index do |attend, i|%>
+                  <span style="margin-right:15px"> <%= i+1 %> -   </span>
+                  <h3 style="margin-right:20px" > <%= attend.first_name %> <%= attend.last_name %>  </h3>
+                  <span> <%= attend.email %>  </span>
+            <% end %>
+            <% end %>
+      </div>
+</div>

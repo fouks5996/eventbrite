@@ -1,0 +1,13 @@
+.wrapper-invite{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+
+.invite-content{
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   width: 60%;
+}
