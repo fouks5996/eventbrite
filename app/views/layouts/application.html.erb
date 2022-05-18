@@ -69,7 +69,7 @@
                     <ul style="padding-left:0px !important">
                       <li>
                         <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                        <%= button_to 'logout', destroy_user_session_path, class: 'css_class', style: 'color:black', method: :delete %>
+                        <%= link_to 'logout', destroy_user_session_path, class: 'css_class', style: 'color:black', method: :delete %>
                       </li>
                       <li style="margin-top:10px">
                       <a style="color:black" href="<%= user_path(current_user.id)%>" > <i class="fa-solid fa-user"></i> Mon compte  </a>                  
