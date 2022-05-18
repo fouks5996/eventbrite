@@ -2,6 +2,12 @@
 <div style="position:relative; margin-bottom:50px" >  
     <div class="title_bg" style="background: linear-gradient(253.68deg, rgba(250, 147, 52, 0.76) 2.53%, rgba(250, 147, 52, 0.66) 29.34%, rgba(67, 43, 217, 0.6) 53.64%, #CA11F9 94.36%);">
       <h1> <%= @event.title%></h1>
+       <% if  current_user == @event.admin %>
+           <%= link_to 'Liste des invités', event_attendance_index_path(@event.id), class: 'btn-create-event', style: 'margin-top:100px' %> 
+           <%= link_to 'Editer', edit_event_path(@event.id), class: 'btn-create-event', style: 'margin-top:100px' %> 
+            <%= link_to 'Supprimer', event_path(@event.id), class: 'btn-create-event', style: 'color:black', method: :delete %>
+      <% else %>
+      <% end %>
     </div>
 </div>
 
@@ -14,6 +20,11 @@
          <p> <i class="fa-solid fa-clock"></i>  Date de fin : <%= Event.end_date(@event).strftime("%d %B %Y")%> à <%=  Event.end_date(@event).strftime("%Hh%M") %>  </p>
          <p> <i class="fa-solid fa-map-pin"></i> Lieu : <%= @event.location%>  </p>
          <p> <i class="fa-solid fa-euro-sign"></i> Prix : <%= @event.price%> € </p>
+          <% if @participated.include? current_user.id %>
+            <p style="color:red; font-weight:700" > Tu ne peux pas participer 2 fois</p>
+         <% else %>
+            <%= link_to 'Participer', new_event_order_path(@event.id), class: 'btn-create-event', style: 'margin-top:100px' %> 
+         <% end %>
       </div> 
          <div style="display:flex; flex-direction:column; margin-left:70px"> 
             <h2 style="font-weight:800">Description </h2>

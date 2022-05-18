@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :event
+  resources :event do
+    resources :attendance
+    resources :orders, only: [:new, :create]
+  end
 
   resources :user
 
-
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "event#index"
 end
