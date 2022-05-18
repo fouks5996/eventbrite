@@ -1,27 +1,31 @@
 <br>
 <br>
 <br>
-<h1>create an event</h1>
+<div class="form-wrap" >
+   <div>
+      <h1>create an event</h1>
 
-   <%= form_tag url_for(action: 'create'), method: "post" do %>
-         <%= label_tag 'Title' %>
-         <%= text_field_tag 'title', (@event.title if !@event.nil?) %>
+      <%= form_tag url_for(action: 'create'), method: "post" do %>
+            <%= label_tag 'Title' %>
+            <%= text_field_tag 'title', (@event.title if !@event.nil?) %>
 
-         <%= label_tag 'Date' %>
-         <%= text_field_tag 'start_date', (@event.start_date if !@event.nil?) %>
+            <%= label_tag 'Date' %>
+            <%= text_field_tag 'start_date', (@event.start_date if !@event.nil?) %>
 
-         <%= label_tag 'Duration' %>
-         <%= text_field_tag 'duration', (@event.duration if !@event.nil?) %>
+            <%= label_tag 'Duration' %>
+            <%= text_field_tag 'duration', (@event.duration if !@event.nil?) %>
 
-         <%= label_tag 'Price' %>
-         <%= text_field_tag 'price', (@event.price if !@event.nil?) %>
+            <%= label_tag 'Price' %>
+            <%= text_field_tag 'price', (@event.price if !@event.nil?) %>
 
-         <%= label_tag 'Description' %>
-         <%= text_field_tag 'description', (@event.description if !@event.nil?) %>
+            <%= label_tag 'Description' %>
+            <%= text_field_tag 'description', (@event.description if !@event.nil?) %>
 
-         <%= label_tag 'Location' %>
-         <%= text_field_tag 'location', (@event.location if !@event.nil?) %>
-         <br /> <br />
+            <%= label_tag 'Location' %>
+            <%= text_field_tag 'location', (@event.location if !@event.nil?) %>
+            <br /> <br />
 
-         <%= submit_tag "Create Event" %>
-   <% end %>
+            <%= submit_tag "Create Event" %>
+      <% end %>
+      </div>
+</div>

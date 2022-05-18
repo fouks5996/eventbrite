@@ -30,13 +30,14 @@
 
 
 
-.btn-create-event{
+.btn-create-event, input[type=submit], button[type=submit] {
    padding: 10px 20px ;
    border-radius: 25px;
    font-size: 1rem;
    font-weight: 400;
    background-color: black;
    color: rgb(255, 255, 255) !important;
+   border-style: none;
 }
 
 .btn-account-user{
@@ -47,3 +48,4 @@
    border: 1px solid black;
 
 }
+
