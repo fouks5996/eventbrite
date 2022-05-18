@@ -2,7 +2,7 @@
 .title_bg{
    height: auto;
    background: linear-gradient(282.1deg, #B0FFB7 6.12%, #B0FFB7 15.86%, rgba(176, 255, 183, 0.969193) 36.09%, rgba(186, 175, 255, 0.58) 47.06%, rgba(186, 175, 255, 0.8) 68.94%, #B0DAFF 96.5%);
-   padding: 100px 200px 80px 200px;
+   padding: 100px 8% 80px 8%;
 
 }
 
@@ -48,7 +48,7 @@
 }
 
 nav{
-   padding: 0px 200px !important;
+   padding: 0px 8% !important;
 }
 
 .title_bg h1{
