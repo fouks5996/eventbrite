@@ -6,6 +6,7 @@
            <%= link_to 'Liste des invités', event_attendance_index_path(@event.id), class: 'btn-create-event', style: 'margin-top:100px' %> 
            <%= link_to 'Editer', edit_event_path(@event.id), class: 'btn-create-event', style: 'margin-top:100px' %> 
             <%= link_to 'Supprimer', event_path(@event.id), class: 'btn-create-event', style: 'color:black', method: :delete %>
+
       <% else %>
       <% end %>
     </div>
@@ -52,6 +53,23 @@
                   <img src="https://source.unsplash.com/200x200/?town?sig=<%=rand(1..10)%>" 
                   alt="avatar">
                </div>
+                <div> 
+                  <%if @event.pic.attached?%>
+                     <%= image_tag @event.pic, alt: 'pic', style: "width:200px; height:200px; margin-right:18px" %>  
+                  <%else%>
+                  <%end%>
+                </div>
+               <% if  current_user == @event.admin %>
+                  <%= form_tag event_pics_path(@event), multipart: true do %>
+                     <div style="display:flex; flex-direction:column; align-items:center; width:200px; margin-top:15px" >
+                        <span style="margin-bottom:18px"  class="btn btn-file">
+                           <%= file_field_tag :pic %> <i class="fa-solid fa-plus"></i> add photo
+                        </span>
+                        <span > <%= submit_tag "Update" %> </span>  
+                     </div>
+                  <% end %>
+                  <% else %>
+               <% end %>
             </div>
          </div>
    </div>

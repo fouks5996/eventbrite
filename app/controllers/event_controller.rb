@@ -23,16 +23,18 @@ class EventController < ApplicationController
       description: params[:description],
       price: params[:price],
       location: params[:location],
-      admin: current_user,
+      admin: current_user
     )
 
-      if @event.save 
-        flash[:success] = "L'event a bien été crée !!"
-        redirect_to "/"
-      else 
-        flash[:error] = "Réessayer"
-        render 'event/new'
-      end
+    if @event.save 
+      flash[:success] = "L'event a bien été crée !!"
+      redirect_to "/"
+    else 
+      flash[:error] = "Réessayer"
+      render 'event/new'
+    end
+
+
   end
 
   def edit 

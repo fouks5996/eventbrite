@@ -1,9 +1,27 @@
 <div style="position:relative; margin-bottom:50px" >  
     <div class="title_bg" style="background: linear-gradient(253.34deg, rgba(211, 52, 166, 0.64) 8.91%, rgba(78, 223, 255, 0.63) 100%);">
-     <h1> <%= @user.first_name%> <%= @user.last_name%></h1>
+    <div style="display:flex; align-items:center">
+   <%if @user.avatar.attached?%>
+         <div> <%= image_tag @user.avatar, alt: 'avatar', style: "width:90px; border-radius: 50%; margin-right:18px" %>   </div>
+   <%else%>
+         <img src="https://source.unsplash.com/200x200/?portrait?sig=<%=rand(1..50)%>" 
+            alt="avatar" class="img-fluid" style="width:90px; border-radius: 50%; margin-right:18px">
+   <%end%>
+         <h1 style="margin-bottom:0px !important">  <%= @user.first_name%> <%= @user.last_name%></h1>
+     </div>
+      <%= form_tag user_avatars_path(@user), multipart: true do %>
+         <div style="display:flex; align-items:center; margin-bottom:20px" >
+            <span  class="btn btn-file">
+               <%= file_field_tag :avatar %> <i class="fa-solid fa-plus"></i> add profile pic
+            </span>
+            <span > <%= submit_tag "Update" %> </span>  
+         </div>
+      <% end %>
+      
       <p> <i class="fa-solid fa-list-ul"></i> <%= @user.description%> </p>
       <p> <i class="fa-solid fa-address-book"></i> <%= @user.email%> </p>
-            <% if current_user %>
+
+      <% if current_user %>
          <a class="edit" style="color:black" href="<%= edit_user_registration_path(@user) %>" > <i class="fa-solid fa-pen"></i> Editer mon mot de passe</a>
       <% else %>
       <% end %>
